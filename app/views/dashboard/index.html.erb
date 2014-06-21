@@ -1,39 +1,39 @@
 <div id="container">
   <nav>
     <div class="menu">
-      <%= image_tag "logo.png", alt: "loguito", title: "._.·° going out is a timeless desire" %>
-      <p><%= link_to "eH... ¿qué es esto?", about_url %></p>
+      <%= image_tag "logo.png", alt: "loguito", title: "._.·° going out is a timeless desire" -%>
+      <p><%= link_to "eH... ¿qué es esto?", about_url -%></p>
       <p>
         <%- if session[:user_id] -%>
-          <%= link_to "salí", logout_url, :method => :delete %>
-        <% else %>
-          <%= mail_to("airOnGString@gmail.com", "aloha", subject: "SYN", encode: "javascript") %>
+          <%= link_to "salí", logout_url, :method => :delete -%>
+        <% else -%>
+          <%= mail_to("airOnGString@gmail.com", "aloha", subject: "SYN", encode: "javascript") -%>
         <%- end -%>
       </p>
     </div>
   </nav>
   <div class="stream">
-    <% unless @thangs.blank? %>
-      <% @thangs.each do |thang| %>
+    <% unless @thangs.blank? -%>
+      <% @thangs.each do |thang| -%>
         <div class="unit" >
           <div class="header">
-            <% if thang.date.day == DateTime.now.day %>
-							<%= link_to thang.what.mb_chars.normalize(:kd).downcase.to_s, thang_path(thang), :class => 'today' %>
-            <% else %>
-							<%= link_to thang.what.mb_chars.normalize(:kd).downcase.to_s, thang_path(thang) %>
-						<% end %>
+            <% if thang.date.day == DateTime.now.day -%>
+              <%= link_to thang.what.mb_chars.normalize(:kd).downcase.to_s, thang_path(thang), :class => 'today' -%>
+            <% else -%>
+              <%= link_to thang.what.mb_chars.normalize(:kd).downcase.to_s, thang_path(thang) -%>
+            <% end -%>
           </div>
           <div class="details">
             <span>
-              <%= thang.place.downcase %>
+              <%= thang.place.downcase -%>
             </span> |
             <span>
-              <%= I18n.localize(thang.date, :format => "%A %d de %B a las %H:%M") %>
+              <%= I18n.localize(thang.date, :format => "%A %d de %B a las %H:%M") -%>
             </span>
           </div>
-          <p><%= truncate(thang.description, length: 350) %></p>
+          <p><%= truncate(thang.description, length: 350) -%></p>
         </div>
-      <% end %>
-    <% end %>
+      <% end -%>
+    <% end -%>
   </div>
 </div>

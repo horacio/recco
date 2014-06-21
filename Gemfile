@@ -16,3 +16,13 @@ gem 'rails-i18n'
 gem 'sass-rails', '~> 4.0.0'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
+
+group :development do
+  gem 'database_cleaner', require: false
+  gem 'guard-rspec'
+  gem 'pry'
+  gem 'pry-nav'
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
+  gem 'thin'
+end
